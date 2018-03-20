@@ -6,7 +6,7 @@
  * @file    		main_P01.c
  * @brief   		Application entry point
  * Team of SW Engineer	: 	Juan Manuel Lara Esparza
- * 							Luis Antonio Arreguin Sandoval
+ *                          Luis Antonio Arreguin Sandoval
  **************************************************
  */
 #include <stdio.h>
