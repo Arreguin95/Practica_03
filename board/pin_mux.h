@@ -63,6 +63,15 @@ extern "C" {
  */
 void BOARD_InitPins(void);
 
+<<<<<<< HEAD
+=======
+/*!
+ * @brief Calls initialization functions.
+ *
+ */
+void BOARD_InitBootPins(void);
+
+>>>>>>> branch 'master' of https://github.com/Arreguin95/Practica_03.git
 #if defined(__cplusplus)
 }
 #endif

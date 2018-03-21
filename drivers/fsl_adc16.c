@@ -144,7 +144,11 @@ void ADC16_GetDefaultConfig(adc16_config_t *config)
     config->clockSource = kADC16_ClockSourceAsynchronousClock;
     config->enableAsynchronousClock = true;
     config->clockDivider = kADC16_ClockDivider8;
+<<<<<<< HEAD
     config->resolution = kADC16_ResolutionSE16Bit;
+=======
+    config->resolution = kADC16_ResolutionSE12Bit;
+>>>>>>> branch 'master' of https://github.com/Arreguin95/Practica_03.git
     config->longSampleMode = kADC16_LongSampleDisabled;
     config->enableHighSpeed = false;
     config->enableLowPower = false;

@@ -53,6 +53,7 @@
 #define BOARD_DEBUG_UART_BAUDRATE 115200
 #endif /* BOARD_DEBUG_UART_BAUDRATE */
 
+<<<<<<< HEAD
 /* Define the port interrupt number for the board switches */
 #define BOARD_SW1_GPIO GPIOA
 #define BOARD_SW1_PORT PORTA
@@ -85,6 +86,24 @@
 #define BOARD_LED_BLUE_GPIO 		GPIOD
 #define BOARD_LED_BLUE_GPIO_PORT 	PORTD
 #define BOARD_LED_BLUE_GPIO_PIN 	1U
+=======
+/*! @brief Indexes of the TSI channels for on board electrodes */
+#define BOARD_TSI_ELECTRODE_1 9U
+#define BOARD_TSI_ELECTRODE_2 10U
+
+/* Board led color mapping */
+#define LOGIC_LED_ON 0U
+#define LOGIC_LED_OFF 1U
+#define BOARD_LED_RED_GPIO GPIOB
+#define BOARD_LED_RED_GPIO_PORT PORTB
+#define BOARD_LED_RED_GPIO_PIN 18U
+#define BOARD_LED_GREEN_GPIO GPIOB
+#define BOARD_LED_GREEN_GPIO_PORT PORTB
+#define BOARD_LED_GREEN_GPIO_PIN 19U
+#define BOARD_LED_BLUE_GPIO GPIOD
+#define BOARD_LED_BLUE_GPIO_PORT PORTD
+#define BOARD_LED_BLUE_GPIO_PIN 1U
+>>>>>>> branch 'master' of https://github.com/Arreguin95/Practica_03.git
 
 #define LED_RED_INIT(output)                                                 \
     GPIO_WritePinOutput(BOARD_LED_RED_GPIO, BOARD_LED_RED_GPIO_PIN, output); \

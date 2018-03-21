@@ -43,6 +43,7 @@ PinsProfile:
 #include "fsl_port.h"
 #include "pin_mux.h"
 
+<<<<<<< HEAD
 #define PIN0_IDX		0u   /*!< Pin number for pin 0 in a port */
 #define PIN1_IDX		1u   /*!< Pin number for pin 1 in a port */
 #define PIN2_IDX		2u   /*!< Pin number for pin 2 in a port */
@@ -112,6 +113,49 @@ void BOARD_InitPins(void) {
     (~(SIM_SOPT5_UART0TXSRC_MASK | SIM_SOPT5_UART0RXSRC_MASK)))	/* Mask bits to zero which are setting */
       | SIM_SOPT5_UART0TXSRC(SOPT5_UART0TXSRC_UART_TX)       	/* UART0 transmit data source select: UART0_TX pin */
       | SIM_SOPT5_UART0RXSRC(SOPT5_UART0RXSRC_UART_RX)       	/* UART0 receive data source select: UART0_RX pin */
+=======
+#define PIN1_IDX                         1u   /*!< Pin number for pin 1 in a port */
+#define PIN2_IDX                         2u   /*!< Pin number for pin 2 in a port */
+#define SOPT5_UART0RXSRC_UART_RX      0x00u   /*!< UART0 receive data source select: UART0_RX pin */
+#define SOPT5_UART0TXSRC_UART_TX      0x00u   /*!< UART0 transmit data source select: UART0_TX pin */
+
+/*
+ * TEXT BELOW IS USED AS SETTING FOR THE PINS TOOL *****************************
+BOARD_InitPins:
+- options: {coreID: singlecore, enableClock: 'true'}
+- pin_list:
+  - {pin_num: '28', peripheral: UART0, signal: TX, pin_signal: TSI0_CH3/PTA2/UART0_TX/TPM2_CH1}
+  - {pin_num: '27', peripheral: UART0, signal: RX, pin_signal: TSI0_CH2/PTA1/UART0_RX/TPM2_CH0}
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR THE PINS TOOL ***
+*/
+
+/*FUNCTION**********************************************************************
+ * 
+ * Function Name : BOARD_InitBootPins
+ * Description   : Calls initialization functions.
+ * 
+ *END**************************************************************************/
+void BOARD_InitBootPins(void) {
+  BOARD_InitPins();
+}
+
+
+/*FUNCTION**********************************************************************
+ *
+ * Function Name : BOARD_InitPins
+ * Description   : Configures pin routing and optionally pin electrical features.
+ *
+ *END**************************************************************************/
+void BOARD_InitPins(void) {
+  CLOCK_EnableClock(kCLOCK_PortA);                           /* Port A Clock Gate Control: Clock enabled */
+
+  PORT_SetPinMux(PORTA, PIN1_IDX, kPORT_MuxAlt2);            /* PORTA1 (pin 27) is configured as UART0_RX */
+  PORT_SetPinMux(PORTA, PIN2_IDX, kPORT_MuxAlt2);            /* PORTA2 (pin 28) is configured as UART0_TX */
+  SIM->SOPT5 = ((SIM->SOPT5 &
+    (~(SIM_SOPT5_UART0TXSRC_MASK | SIM_SOPT5_UART0RXSRC_MASK))) /* Mask bits to zero which are setting */
+      | SIM_SOPT5_UART0TXSRC(SOPT5_UART0TXSRC_UART_TX)       /* UART0 transmit data source select: UART0_TX pin */
+      | SIM_SOPT5_UART0RXSRC(SOPT5_UART0RXSRC_UART_RX)       /* UART0 receive data source select: UART0_RX pin */
+>>>>>>> branch 'master' of https://github.com/Arreguin95/Practica_03.git
     );
 }
 
